@@ -2,7 +2,7 @@
   "name": "dsh-plugin-commit-preflight",
   "version": "0.1.0",
   "type": "module",
-  "description": "Commit size and preflight checks for DeepSeek Harness",
+  "description": "提交大小检查插件-DeepSeek Harness",
   "main": "src/dsh.js",
   "exports": {
     ".": "./src/dsh.js",

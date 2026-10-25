@@ -22,7 +22,7 @@
 2. 在终端执行一次安装命令，把路径换成你自己的插件目录：
 
    ```sh
-   npx @deepseek-ai/dsh plugin --profile web add "/Users/zhang/plugins/commit-preflight"
+   npx @deepseek-ai/dsh plugin --profile web add "/Users/levi/plugins/commit-preflight"
    ```
 
 3. 退出原来的 DSH 进程，再启动：
