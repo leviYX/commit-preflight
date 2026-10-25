@@ -31,7 +31,7 @@ export function apply(ctx) {
   ctx.inject(['commands'], commandCtx => {
     commandCtx.commands.register({
       name: 'preflight',
-      description: 'Check staged commit size and added lines. Does not run project scripts.',
+      description: '检查本次提交的大小和行数，不会执行项目中的任何脚本。Check staged commit size and added lines. Does not run project scripts.',
       input: { hint: '可选：项目绝对路径（默认当前项目）' },
       async handler({ rawInput, agent }) {
         // 显式路径优先，否则读取本次命令所属会话的项目，避免会话间串用路径。

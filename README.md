@@ -18,20 +18,30 @@
 
 以下方式已在 `@deepseek-ai/dsh 0.1.0-rc.6` 验证。无需知道 DSH 安装目录。
 
-1. 保存完整插件目录，例如 `/Users/livi/plugins/commit-preflight`。
-2. 在终端执行一次安装命令，把路径换成你自己的插件目录：
+1. 保存完整插件目录，例如 `/Users/zhang/plugins/commit-preflight`。
+2. 选择下面一种方式安装和启动 DSH。两条命令要使用同一种方式和同一个 DSH 版本。
+
+   **如果已经可以直接运行 `dsh` 命令：**
 
    ```sh
-   npx @deepseek-ai/dsh plugin --profile web add "/Users/levi/plugins/commit-preflight"
+   dsh plugin --profile web add "/Users/zhang/plugins/commit-preflight"
+   dsh web
    ```
 
-3. 退出原来的 DSH 进程，再启动：
+   **如果没有 `dsh` 命令：**本插件已按 DSH `0.1.0-rc.6` 验证。用下面这组固定版本的命令安装和启动：
 
    ```sh
-   npx @deepseek-ai/dsh web
+   npx --yes @deepseek-ai/dsh@0.1.0-rc.6 plugin --profile web add "/Users/zhang/plugins/commit-preflight"
+   npx --yes @deepseek-ai/dsh@0.1.0-rc.6 web
    ```
 
-`web` 是图形界面使用的 profile。若你使用其他 profile，请替换成对应名称。安装后请保留插件目录，勿随意移动。仅把目录放进 plugins 文件夹不会自动启用插件。
+`web` 是图形界面使用的 profile。若你使用其他 profile，请将命令中的 `web` 替换成对应名称。安装后请退出原来的 DSH 进程并重新启动；保留插件目录，勿随意移动。仅把目录放进 plugins 文件夹不会自动启用插件。
+
+### 为什么 `npx @deepseek-ai/dsh web` 会询问安装？
+
+`npx` 会查找当前目录中可用的 DSH；如果没有找到，就从 npm 下载命令中指定的 DSH 包再运行。提示 `Need to install ... Ok to proceed?` 是 **npm 在询问是否下载并运行 DSH**，不是 DSH 在要求升级。未指定版本时，npm 可能选择最新版；例如 `0.2.1-rc.2` 与本插件验证过的 `0.1.0-rc.6` 不同，启动另一个版本也可能带来插件兼容性问题。
+
+可以输入 `y` 让 npx 下载提示中的版本，但那不一定是你之前安装插件时使用的版本。为避免版本不一致，请直接使用已安装的 `dsh` 命令；若没有该命令，则像上面的示例一样，在安装和启动命令中都写明相同的版本号。`--yes` 只跳过 npm 的确认提示，不会跳过下载。
 
 ## 在图形界面中使用
 
@@ -151,7 +161,13 @@
 在终端执行后重启 DSH：
 
 ```sh
-npx @deepseek-ai/dsh plugin --profile web remove dsh-plugin-commit-preflight
+dsh plugin --profile web remove dsh-plugin-commit-preflight
+```
+
+如果使用固定版本的 npx 安装，则使用同一版本卸载：
+
+```sh
+npx --yes @deepseek-ai/dsh@0.1.0-rc.6 plugin --profile web remove dsh-plugin-commit-preflight
 ```
 
 ## 项目脚本的实际行为
