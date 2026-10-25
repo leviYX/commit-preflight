@@ -174,3 +174,7 @@ npm run check
 ```
 
 集成测试使用临时 Git 仓库并在结束后清理，不会暂存/提交你的真实项目。测试覆盖首次提交、暂存与未暂存、重命名、二进制文件、中文/空格/换行/制表符文件名、阈值、排除规则、冲突、扫描定位、脚本超时和输出上限、工具注册、当前会话项目识别与显式路径覆盖。
+
+
+# 参考
+- [deepseek-harness][https://deepseek-harness.github.io/deepseek-harness/develop/basic/]
