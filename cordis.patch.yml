@@ -1,0 +1,3 @@
+- insert:
+    - id: commit-preflight
+      name: dsh-plugin-commit-preflight

@@ -1,0 +1,36 @@
+{
+  "name": "dsh-plugin-commit-preflight",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Commit size and preflight checks for DeepSeek Harness",
+  "main": "src/dsh.js",
+  "exports": {
+    ".": "./src/dsh.js",
+    "./core": "./src/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "bin": {
+    "dsh-preflight": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/index.js && node --check src/git.js && node --check src/report.js && node --check src/checks.js && node --check src/cli.js && node --check src/dsh.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "private": true,
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  }
+}

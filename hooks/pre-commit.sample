@@ -1,0 +1,6 @@
+#!/bin/sh
+# 示例：需手动接入目标仓库，不会自动安装。
+# 如已有 pre-commit / Husky / Lefthook，请合并调用，勿覆盖现有 hook。
+exec node /Users/levi/develop/project/my/dsh/plugins/commit-preflight/src/cli.js \
+  --path "$(git rev-parse --show-toplevel)"
+# 默认只阻止错误；若警告也必须阻止提交，在上面追加 --strict。

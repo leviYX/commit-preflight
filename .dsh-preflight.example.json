@@ -1,0 +1,16 @@
+{
+  "warnLines": 300,
+  "maxLines": 800,
+  "warnFiles": 20,
+  "exclude": [
+    "**/package-lock.json",
+    "**/pnpm-lock.yaml",
+    "**/yarn.lock",
+    "**/bun.lock",
+    "**/bun.lockb",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/vendor/**"
+  ]
+}

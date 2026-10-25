@@ -4,6 +4,11 @@
 # Log file
 *.log
 
+# Local development artifacts
+node_modules/
+.DS_Store
+*.tgz
+
 # BlueJ files
 *.ctxt
 
